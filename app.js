@@ -18,7 +18,7 @@ setTimeout(() => {
 */
 
 //Timeout part 2
-
+/*
 function getWords(word) {
     console.log("Hola--1st");
     setTimeout(() => {
@@ -33,15 +33,36 @@ function getWords(word) {
 
 }
 
+
 getWords();
+*/
 
-function done (){
-    console.log ("You are done!");
+function done() {
+    console.log("The job is done!");
 
 }
 
-function countdown(num, callback){
+
+function countdown(num, callback) {
     console.log(callback);
-}
 
-countdown(1, done);
+
+    setTimeout(() => {
+        console.log(num);
+
+        // TERMINATION
+        if (num < 0) return;
+        // BASE
+        if (num === 0) return 1;
+        // RECURSION
+        return num * countdown(num - 1);
+        if (num === 1) return callback();
+          
+        
+
+    }, 1000);
+
+
+}
+ 
+countdown(10, done);
