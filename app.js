@@ -39,37 +39,30 @@ getWords();
 
 //Callbacks and Recursion
 
-//NOT COMPLETE:  still need to get the callback working for the done() function.
+function countdown(num, callback) {
+
+
+    setTimeout(() => {
+        if (num > 0) {
+            console.log(num);
+            countdown(num - 1, callback);
+
+        } else {
+            callback();
+        }
+
+    }, 1000);
+
+
+}
+
+countdown(3, done);
 
 function done() {
     console.log("The job is done!");
 
 }
 
-function countdown(num, callback) {
-
-    setTimeout(() => {
-        console.log(num);
-
-        // TERMINATION
-        if (num < 2) return;
-
-        // RECURSION
-        return countdown(num - 1);
-
-        // BASE
-        if (num === 0) return;
-
-
-    }, 1000);
-
-    if (num === 1) {
-        console.log(callback);
-    }
-
-}
-
-countdown(3, done);
 
 //Promises, Promises
 
